@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jídelna Systém</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <nav class="sidebar">
+            <div class="logo">
+                <h2>🍔 Jídelna</h2>
+            </div>
+            <ul>
+                <li onclick="prepnoutSekci('menu')">
+                    🍽️ Nabídka Menu
+                </li>
+                <li onclick="prepnoutSekci('objednavky')">
+                    📋 Objednávky
+                </li>
+                <li onclick="prepnoutSekci('statistiky')">
+                    📊 Statistiky
+                </li>
+            </ul>
+        </nav>
+
+        <main class="content">
+            
+            <section id="menu" class="sekce">
+                <header>
+                    <h1>Dnešní nabídka</h1>
+                </header>
+                
+                <div class="menu-grid" id="menu-container">
+                    </div>
+            </section>
+
+            <section id="objednavky" class="sekce hidden">
+                <header>
+                    <h1>Přehled objednávek</h1>
+                </header>
+
+                <table class="tabulka-objednavek">
+                    <thead>
+                        <tr>
+                            <th>Název jídla</th>
+                            <th>Cena</th>
+                            <th>Stav</th>
+                        </tr>
+                    </thead>
+                    <tbody id="seznam-objednavek">
+                        </tbody>
+                </table>
+            </section>
+
+            <section id="statistiky" class="sekce hidden">
+                <header>
+                    <h1>Statistiky prodeje</h1>
+                </header>
+                <div class="karta-statistiky">
+                    <h3>Zatím prodáno za:</h3>
+                    <p>0 Kč</p>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
