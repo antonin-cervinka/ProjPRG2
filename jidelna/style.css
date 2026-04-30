@@ -1,0 +1,375 @@
+:root {
+    --primarni-barva: #170C79; 
+    --barva-pozadi: #f4f6f8;
+    --barva-textu: #333333;
+    --barva-textu-svetla: #666666;
+    --barva-karet: #ffffff;
+    --okraj: #e1e4e8;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--barva-pozadi);
+    color: var(--barva-textu);
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1, h2, h3 {
+    color: var(--primarni-barva);
+    margin-bottom: 15px;
+}
+
+a {
+    color: var(--primarni-barva);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Obal pro celou kategorii */
+.kategorie-sekce {
+    margin-bottom: 40px;
+}
+
+/* Kontejner pro scrollování / mřížku */
+.kategorie-kontejner {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 15px;
+    /* Úprava scrollovací lišty pro hezčí vzhled */
+    scrollbar-width: thin;
+}
+
+.kategorie-kontejner::-webkit-scrollbar {
+    height: 8px;
+}
+.kategorie-kontejner::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+
+/* Samotná karta jídla */
+.karta {
+    background-color: var(--barva-karet);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    /* Na mobilu zabere karta 85% šířky, aby bylo vidět další jídlo a svádělo to ke scrollování */
+    flex: 0 0 85%; 
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.2s;
+}
+
+.karta:hover {
+    transform: translateY(-5px);
+}
+
+.karta-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    background-color: #eeeeee;
+}
+
+.karta-obsah {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    /* Tohle zajistí, že se obsah roztáhne a patička s tlačítkem bude vždy úplně dole */
+    flex-grow: 1; 
+}
+
+.karta-nazev {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primarni-barva);
+    margin-bottom: 5px;
+}
+
+.karta-cena {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.karta-popis {
+    font-size: 0.9rem;
+    color: var(--barva-textu-svetla);
+    margin-bottom: 15px;
+}
+
+.karta-tagy {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 15px;
+}
+
+.tag {
+    background-color: #f0f0f0;
+    color: #555;
+    padding: 4px 8px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* Formulář na spodu karty */
+.karta-akce {
+    display: flex;
+    gap: 10px;
+    margin-top: auto; /* Zatlačí formulář na úplné dno karty */
+}
+
+.karta-akce input[type="number"] {
+    width: 60px;
+    padding: 8px;
+    border: 1px solid var(--okraj);
+    border-radius: 5px;
+    text-align: center;
+}
+
+.karta-akce button {
+    flex-grow: 1;
+    background-color: var(--primarni-barva);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: opacity 0.2s;
+}
+
+.karta-akce button:hover {
+    opacity: 0.8;
+}
+
+/* RESPONZIVITA - Pro počítače (šířka nad 768px) */
+@media (min-width: 768px) {
+    .kategorie-kontejner {
+        flex-wrap: wrap; /* Povolí zalamování karet pod sebe */
+        overflow-x: visible; /* Vypne horizontální scrollování */
+    }
+    .karta {
+        /* Vypočítá šířku tak, aby se vešly 3 karty vedle sebe s mezerou 20px */
+        flex: 0 0 calc(33.333% - 14px); 
+    }
+}
+
+/* Pro velké monitory (šířka nad 1024px) */
+@media (min-width: 1024px) {
+    .karta {
+        /* 4 karty vedle sebe */
+        flex: 0 0 calc(25% - 15px); 
+    }
+}
+.admin-statistiky-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.stat-box {
+    flex: 1;
+    overflow-x: auto;
+}
+
+@media (min-width: 768px) {
+    .admin-statistiky-grid {
+        flex-direction: row;
+        gap: 50px;
+    }
+}
+/* ==== TABULKY ==== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--barva-karet);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    border-radius: 10px;
+    /* overflow: hidden zařídí, že rohy tabulky zůstanou kulaté i přes barevnou hlavičku */
+    overflow: hidden; 
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--okraj);
+}
+
+th {
+    background-color: var(--primarni-barva);
+    color: white;
+    font-weight: bold;
+}
+
+tr:last-child td {
+    border-bottom: none; /* Poslední řádek nebude mít zespodu čáru */
+}
+
+tr:hover td {
+    background-color: #f4f6f8; /* Jemné zvýraznění řádku po najetí myší */
+}
+
+/* ==== FORMULÁŘE A TLAČÍTKA ==== */
+input[type="text"], 
+input[type="number"], 
+input[type="email"], 
+input[type="password"], 
+select, 
+textarea {
+    width: 100%;
+    max-width: 400px; /* Aby pole nebyly zbytečně dlouhé na velkém monitoru */
+    padding: 12px 15px;
+    border: 1px solid var(--okraj);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    transition: border-color 0.2s;
+}
+
+/* Zvýraznění pole, do kterého zrovna píšeš */
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primarni-barva);
+}
+
+button, 
+input[type="submit"] {
+    background-color: var(--primarni-barva);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: opacity 0.2s, transform 0.1s;
+}
+
+button:hover, 
+input[type="submit"]:hover {
+    opacity: 0.85; /* Tlačítko lehce zesvětlá */
+}
+
+button:active, 
+input[type="submit"]:active {
+    transform: scale(0.97); /* Efekt fyzického zmáčknutí tlačítka */
+}
+
+/* ==== SEZNAMY V TABULKÁCH (Položky v kuchyni) ==== */
+td ul {
+    padding-left: 20px; /* Vrátí odrážkám místo, aby nebyly nalepené na kraji */
+    margin: 5px 0;
+}
+
+td ul li {
+    margin-bottom: 5px; /* Lehce oddělí jednotlivá jídla od sebe */
+}
+.hlavicka {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.hlavicka-ovladani {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.btn-kosik {
+    background-color: var(--primarni-barva);
+    color: white;
+    padding: 12px 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+}
+
+.uzivatel-panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background: var(--barva-karet);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    gap: 15px;
+}
+
+.uzivatel-sekce {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.uzivatel-hodnota {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    white-space: nowrap;
+}
+
+.btn-akce-cervena {
+    color: #e74c3c;
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.btn-akce-zelena {
+    background-color: #27ae60;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.85rem;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.oddelovac {
+    color: var(--okraj);
+    font-size: 2rem;
+    font-weight: 100;
+}
+
+@media (min-width: 768px) {
+    .hlavicka {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    
+    .hlavicka-ovladani {
+        align-items: flex-end;
+        min-width: 350px;
+    }
+    
+    .btn-kosik {
+        width: 100%;
+    }
+}

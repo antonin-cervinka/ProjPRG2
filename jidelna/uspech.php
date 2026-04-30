@@ -9,7 +9,8 @@ if (!isset($_SESSION['uzivatel_id'])) {
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Objednávka přijata</title>
 </head>
 <body>

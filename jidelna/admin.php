@@ -46,7 +46,9 @@ $vsechna_jidla = $stmt_vsechna_jidla->fetchAll();
 <html lang="cs">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administrace</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Administrátorský panel</h1>
@@ -55,8 +57,8 @@ $vsechna_jidla = $stmt_vsechna_jidla->fetchAll();
     <h2>Statistiky</h2>
     <p>Celkový obrat systému: <strong><?php echo number_format($obrat, 2, ',', ' '); ?> Kč</strong></p>
 
-    <div style="display: flex; gap: 50px;">
-        <div>
+    <div class="admin-statistiky-grid">
+        <div class="stat-box">
             <h3>Nejprodávanější jídla (Top 5)</h3>
             <table border="1" cellpadding="5" cellspacing="0">
                 <tr>
@@ -72,7 +74,7 @@ $vsechna_jidla = $stmt_vsechna_jidla->fetchAll();
             </table>
         </div>
         
-        <div>
+        <div class="stat-box">
             <h3>Zákazníci a jejich kredit</h3>
             <table border="1" cellpadding="5" cellspacing="0">
                 <tr>
@@ -92,35 +94,38 @@ $vsechna_jidla = $stmt_vsechna_jidla->fetchAll();
     </div>
 
     <h2>Správa nabídky</h2>
-    <p><a href="pridat_jidlo.php">Přidat nové jídlo do systému</a></p>
-    <table border="1" cellpadding="5" cellspacing="0">
-        <tr>
-            <th>Kategorie</th>
-            <th>Název jídla</th>
-            <th>Cena</th>
-            <th>Stav</th>
-            <th>Akce</th>
-        </tr>
-        <?php foreach ($vsechna_jidla as $j): ?>
+    <p><a href="pridat_jidlo.php">Přidat nové jídlo do systému</a> | <a href="sprava_kategorii.php">Spravovat kategorie</a></p>
+    
+    <div style="overflow-x: auto;">
+        <table border="1" cellpadding="5" cellspacing="0">
             <tr>
-                <td><?php echo htmlspecialchars($j['kategorie']); ?></td>
-                <td><?php echo htmlspecialchars($j['nazev']); ?></td>
-                <td><?php echo number_format($j['cena'], 2, ',', ' '); ?> Kč</td>
-                <td style="color: <?php echo $j['aktivni'] ? 'green' : 'red'; ?>;">
-                    <?php echo $j['aktivni'] ? 'Aktivní' : 'Skryto'; ?>
-                </td>
-                <td>
-                    <form method="POST" style="margin: 0;">
-                        <input type="hidden" name="zmenit_stav_jidla" value="1">
-                        <input type="hidden" name="jidlo_id" value="<?php echo $j['id']; ?>">
-                        <input type="hidden" name="novy_stav" value="<?php echo $j['aktivni'] ? '0' : '1'; ?>">
-                        <button type="submit">
-                            <?php echo $j['aktivni'] ? 'Skrýt jídlo' : 'Aktivovat jídlo'; ?>
-                        </button>
-                    </form>
-                </td>
+                <th>Kategorie</th>
+                <th>Název jídla</th>
+                <th>Cena</th>
+                <th>Stav</th>
+                <th>Akce</th>
             </tr>
-        <?php endforeach; ?>
-    </table>
+            <?php foreach ($vsechna_jidla as $j): ?>
+                <tr>
+                    <td><?php echo htmlspecialchars($j['kategorie']); ?></td>
+                    <td><?php echo htmlspecialchars($j['nazev']); ?></td>
+                    <td><?php echo number_format($j['cena'], 2, ',', ' '); ?> Kč</td>
+                    <td style="color: <?php echo $j['aktivni'] ? 'green' : 'red'; ?>;">
+                        <?php echo $j['aktivni'] ? 'Aktivní' : 'Skryto'; ?>
+                    </td>
+                    <td>
+                        <form method="POST" style="margin: 0;">
+                            <input type="hidden" name="zmenit_stav_jidla" value="1">
+                            <input type="hidden" name="jidlo_id" value="<?php echo $j['id']; ?>">
+                            <input type="hidden" name="novy_stav" value="<?php echo $j['aktivni'] ? '0' : '1'; ?>">
+                            <button type="submit">
+                                <?php echo $j['aktivni'] ? 'Skrýt jídlo' : 'Aktivovat jídlo'; ?>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </table>
+    </div>
 </body>
 </html>
