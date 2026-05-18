@@ -4,7 +4,7 @@ Tento repozitář obsahuje zdrojové kódy pro webovou aplikaci školní/firemn�
 
 ## 🌐 Živá ukázka (Live Demo)
 
-Aplikaci si můžete reálně vyzkoušet zde: [JIDELNA]([httpsobjednavkovy-system.free.nf](http://objednavkovy-system.free.nf))
+Aplikaci si můžete reálně vyzkoušet zde: ![JIDELNA](http://objednavkovy-system.free.nf)
 ## ✨ Hlavní funkce
 
 Systém je rozdělen pro 3 typy uživatelů, z nichž každý má specifické rozhraní a práva:
@@ -58,7 +58,7 @@ jidelna/
 ```
 ## 🎨 Design a ukázka aplikace
 
-Zde je rychlý náhled hlavních obrazovek systému. Aplikaci si můžeš vyzkoušet i naživo na: [script](objednavkovy-system.free.nf)
+Zde je rychlý náhled hlavních obrazovek systému. Aplikaci si můžeš vyzkoušet i naživo na: ![JIDELNA](http://objednavkovy-system.free.nf)
 
 ### Hlavní stránka (Strávník)
 <img width="1637" height="932" alt="image" src="https://github.com/user-attachments/assets/5a876808-69ef-45a9-8037-cc2b65936997" />
