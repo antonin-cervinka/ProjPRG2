@@ -4,7 +4,7 @@ Tento repozitář obsahuje zdrojové kódy pro webovou aplikaci školní/firemn�
 
 ## 🌐 Živá ukázka (Live Demo)
 
-Aplikaci si můžete reálně vyzkoušet zde: [script](objednavkovy-system.free.nf)
+Aplikaci si můžete reálně vyzkoušet zde: [JIDELNA]([httpsobjednavkovy-system.free.nf](http://objednavkovy-system.free.nf))
 ## ✨ Hlavní funkce
 
 Systém je rozdělen pro 3 typy uživatelů, z nichž každý má specifické rozhraní a práva:
