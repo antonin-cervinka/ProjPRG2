@@ -2,7 +2,7 @@
 
 Tento repozitář obsahuje zdrojové kódy pro webovou aplikaci školní/firemní jídelny. Projekt vznikl jako ročníková práce do předmětu Programování. Cílem aplikace je digitalizovat proces objednávání a výdeje jídel.
 
-## 🌐 Živá ukázka (Live Demo)
+## 🌐 Živá ukázka 
 
 Aplikaci si můžete reálně vyzkoušet zde: [JIDELNA](http://objednavkovy-system.free.nf)
 ## ✨ Hlavní funkce
@@ -31,7 +31,7 @@ Systém je rozdělen pro 3 typy uživatelů, z nichž každý má specifické ro
 * **Backend:** PHP 
 * **Databáze:** MySQL
 
-## 📁 Struktura projektu (Project Structure)
+## 📁 Struktura projektu 
 
 Projekt je pro zjednodušení navržen s plochou strukturou (všechny soubory v kořenovém adresáři):
 
