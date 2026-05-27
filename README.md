@@ -56,7 +56,7 @@ jidelna/
 ├── zpracovat_objednavku.php   # Back-end skript pro finální zápis objednávky do DB
 └── .gitignore                 # Ignorované soubory pro Git (např. .DS_Store)
 ```
-## ER Diagram
+## 🗄️ ER Diagram
 <img width="604" height="741" alt="image" src="https://github.com/user-attachments/assets/62776843-ba8d-43c5-9b2d-2394c5bcfe62" />
 
 ## 🎨 Design a ukázka aplikace
